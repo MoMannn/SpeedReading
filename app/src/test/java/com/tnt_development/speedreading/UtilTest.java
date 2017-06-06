@@ -1,0 +1,59 @@
+package com.tnt_development.speedreading;
+
+import com.tnt_development.speedreading.Application.App;
+import com.tnt_development.speedreading.Modules.Main.MainPresenter;
+
+import org.junit.Test;
+
+import java.io.DataInputStream;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import static org.junit.Assert.*;
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+public class UtilTest {
+
+    @Test
+    public void parseCheck() throws Exception
+    {
+        String contents = "I was supposed to be the first human to reach Kupier-III. I made sure of that. The paperwork, the late night haggling with the right politicians, some threats here and there, all to ensure that my ship, the Vernon Winfrey, would be humanity's first ship to reach the mineral-rich zone.\n" +
+                "\n" +
+                "As I stared at the holoscreen in front of me, my stomach sank. Just before the massive rocks that make up the asteroid belt and the floating gas that enveloped them, there was the unmistakable sight of the corpses of at least a dozen or so ships. They were massive, one at least ten times the size of Vernon Winfrey, and all of them bore the scars of what must be a massive space battle.\n" +
+                "\n" +
+                "They drifted lifelessly between my ship and the bountiful harvest that lay beyond, almost as a warning to those who dare venture forth.\n" +
+                "\n" +
+                "My thumb pressed the intercom button on my Captain's chair. The holographic face of Dr Jefferey popped out in front of me. He was the Council's attache for the mission. 'Dr Jefferey, I thought the council mentioned that this area was supposed to be unexplored by any ships before,' I asked.\n" +
+                "\n" +
+                "The doctor seemed to have seen the same thing as me, as his attention was focused on the tablet on his hands. 'Yes, captain, according to our records, this area is indeed unexplored. I have no explanation of the ships before us, captain. Previous long ranged scans did not pick up the presence of...' he hesitated for a second. 'Ships that do not seem to be of human origin.'\n" +
+                "\n" +
+                "I groaned. Bureaucrats. They never seem eager to let on more than what we should know. For all I knew, his superiors may have been already briefed. It those ships were indeed what Jefferey claimed, it was the first proof of the existence of another intelligent race.\n" +
+                "\n" +
+                "A red blinking light caught my attention, and I pressed another button. Dr Jefferey's was replaced by the familiar face of Lieutenant Robert, the chief navigational office. 'I hope you have more information for me, Robert,' I said to the man. Robert was a proactive officer, always keeping a step ahead of any potential situation. He was one of the reasons my mining venture flourished.\n" +
+                "\n" +
+                "Robert's face, however, was grim. His brows were furrowed like McDonald's golden arch, something he would do only when he is stressed. 'Sir, I am afraid so. Preliminary carbon scan indicates that the ships were at least a few thousand years old, and...' Robert stopped mid-sentence.\n" +
+                "\n" +
+                "'And what?' I asked impatiently. What's with officers and their tendency to pause during the most important part of the sentence?\n" +
+                "\n" +
+                "Robert coughed, before tapping a button on his tablet. 'The signal is very weak, given that it's a few thousand years old, and we had to amplify it to actually hear it.'\n" +
+                "\n" +
+                "A strange voice filled the ship's speaker, croaking over and over again. It was probably the alien's language, and whoever speaking was in pain. 'Ribbiato,' the voice groaned. 'Ribbiato,' it repeated. Slow, deep, like hearing it coming up from an empty well, trying to pull us down.\n" +
+                "\n" +
+                "Robert tapped his tablet again, and the voice stopped. I could tell that he was disturbed. 'That's it, that's the signal broadcasted, repeated over and over again.'\n" +
+                "\n" +
+                "I shifted uncomfortably in my seat, suddenly feeling the weight of all the eyes looking at me. 'Any idea what it is, gentlemen?' I directed the question at Robert and the doctor. The both shook their head.\n" +
+                "\n" +
+                "'I need to run more scans before I am able to determine-' Robert began to say, but he was interrupted by a sudden sound wave coming from Kupieer-III that briefly shook our ship. Several of the smaller asteroids flew past us, some hitting our shields.\n" +
+                "\n" +
+                "It was then when I saw it, two pair of red eyes appearing from beyond the corpses of ships, the millions of asteroids and gas cloud that make up Kupieer.-III. And then I understood, the aliens were trying to warn us of what laid behind the mineral rich nebula.\n";
+
+        LinkedList words = new LinkedList<>(Arrays.asList(contents.replace("\n"," ").trim().replaceAll(" +", " ").split(" ")));
+
+        assertEquals(words.size(), 684);
+    }
+}

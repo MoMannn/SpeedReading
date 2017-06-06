@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SpeedReading</string>
+    <string name="errorReadingFile">Cannot read files to display</string>
+</resources>
