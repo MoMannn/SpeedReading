@@ -1,7 +1,5 @@
 package com.tnt_development.speedreading.Util;
 
-import android.util.Log;
-
 import com.tnt_development.speedreading.Application.App;
 
 import java.io.DataInputStream;

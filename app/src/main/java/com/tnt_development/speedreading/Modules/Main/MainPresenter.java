@@ -1,13 +1,10 @@
 package com.tnt_development.speedreading.Modules.Main;
 
-
 import com.tnt_development.speedreading.Application.App;
 import com.tnt_development.speedreading.Application.Global;
 import com.tnt_development.speedreading.R;
 import com.tnt_development.speedreading.Util.Sprintz;
 import com.tnt_development.speedreading.Util.TextParser;
-
-import org.reactivestreams.Subscription;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -15,14 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
-import io.reactivex.Completable;
-import io.reactivex.Maybe;
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Action;
-import io.reactivex.internal.operators.flowable.FlowableJust;
+
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
