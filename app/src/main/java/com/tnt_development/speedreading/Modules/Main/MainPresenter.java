@@ -8,13 +8,18 @@ import com.tnt_development.speedreading.Util.TextParser;
 
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import io.reactivex.Completable;
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
+import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
@@ -42,15 +47,27 @@ public class MainPresenter {
 
     public void showWords()
     {
-        //todo: use rxjava
-        loadWords();
 
-        mainView.hideLoading();
+        Flowable.fromCallable(new Callable<String>(){
+
+            @Override
+            public String call() throws Exception {
+
+                loadWords();
+
+                return "done";
+            }
+        }).subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                mainView.hideLoading();
+                display();
+            }
+        });
 
         refreshRate = 60000 / Global.wordsPerMinute;
-
-        display();
-
     }
 
     private void loadWords()
